@@ -1,0 +1,113 @@
+<!-- main page -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hook Me Up</title>
+        <!-- css and bootstrap links -->
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/style.css">
+        <link rel="stylesheet" href="../static/files/css/lightslider.css">
+        <!-- supporting js files -->
+        <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/files/js/jquery.js"></script>
+        <script src="../static/files/js/lightslider.js"></script>
+        <script src="../static/files/js/script.js"></script>
+    </head>
+
+    <body style="zoom:70%">
+        <div class="container-fluid">
+            <!-- include navbar -->
+
+            {% include'navbar.html' %} <hr>
+
+            <h1 style="color:magenta;zoom:50%" class="display 1 text-center"><span id="time"> </span></h1>
+            <script>   `use strict`
+var datetime = new Date();
+console.log(datetime);
+document.getElementById("time").textContent = datetime; //it will print on html page </script>
+<h2 class=" text-capitalized text-center" style="color:magenta">Hookup with {{one_employee[1]}}</h2>
+
+  <section class="row bg-light " style="height: max-content;">
+<div class="col-md-12 col-12 m-auto " style="height:max-content">
+    <div class="card bg-light text-bold p-3 m-auto" style="margin-top:5px; border-radius: 15px;height: fit-content;width:40%">
+        <div class="card-header">
+            <h1 class="display 4" style="color:magenta">{{one_employee[1]}}</h1>
+        </div>
+        <h6 class="display 6">Reach <span style="color:magenta;font-size:20px">{{one_employee[1]}}</span> Through : </h6>
+        <p><span style="color:magenta">Email :</span> {{one_employee[4]}} </p>
+        <p><span style="color:magenta">Website :</span> {{one_employee[5]}}</p>
+        <p><span style="color:magenta">Phone/SMS</span> {{one_employee[3]}}</p>
+        <p><span style="color:magenta">Vacancies</span> {{one_employee[7]}}</p>
+        <p><span style="color:magenta">Date Posted</span> {{one_employee[6]}}</p>
+        <div class="card bg-light text-bold p-3" style="margin-top:5px; border-radius: 15px;height: fit-content;">
+            {{one_employee[8]}}
+        </div>
+    </div>
+</div>
+      <h6 class="display 3 text-center" style="color:magenta;font-size:20px">Requirements</h6>
+      <div class="card bg-light text-bold p-3 m-auto" style="margin-top:0px; border-radius: 15px;height: fit-content;width:40%">
+          <ol>
+              <li>{{one_employee[9]}}</li>
+              <li>{{one_employee[10]}}</li>
+              <li>{{one_employee[11]}}</li>
+              <li>{{one_employee[12]}}</li>
+              <li>{{one_employee[13]}}</li>
+              <li>{{one_employee[14]}}</li>
+              <li>{{one_employee[15]}}</li>
+              <li>{{one_employee[16]}}</li>
+              <li>{{one_employee[17]}}</li>
+              <li>{{one_employee[18]}}</li>
+          </ol>
+
+
+        </div>
+
+</section>
+            <a href="/jobs" type="button" class="buy-btn m-auto btn-sm" >Back</a>
+
+
+<style>
+    .col-md-3{
+        height:300px;
+        overflow-y: hidden;
+        border-radius: 15px;
+
+    }
+    .card{
+        height: fit-content;
+overflow-y: hidden;
+
+    }
+    .row{
+        border-radius: 15px;
+    }
+</style>
+
+
+
+   {% include 'footer.html'%}
+
+
+        </div>
+
+
+    </body>
+
+</html>

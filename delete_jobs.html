@@ -1,0 +1,113 @@
+<!-- main page -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Delete Jobs</title>
+        <!-- css and bootstrap links -->
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/style.css">
+        <link rel="stylesheet" href="../static/files/css/lightslider.css">
+        <!-- supporting js files -->
+        <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/files/js/jquery.js"></script>
+        <script src="../static/files/js/lightslider.js"></script>
+        <script src="../static/files/js/script.js"></script>
+    </head>
+
+    <body style="zoom:70%">
+        <div class="container-fluid">
+            <!-- include navbar -->
+
+            <h1 style="color:magenta;zoom:50%" class="display 1 text-center"><span id="time"> </span></h1>
+            <script>   `use strict`
+var datetime = new Date();
+console.log(datetime);
+document.getElementById("time").textContent = datetime; //it will print on html page </script>
+
+
+<h2 class=" text-capitalized " style="text-align: center;color:magenta">Delete Jobs</h2>
+<div class="alert alert-info alert-dismissible fade show bg-success"role="alert" style="border-radius:15px">
+            <button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            <p style="font-size:30px;" class="text-center text-light">{{ message }}</p>
+         <p style="font-size:30px;" class="text-center text-light">{{ error }}</p>
+          </div>
+  <section class="row bg-light " style="height: fit-content;">
+       {% for job in myjob %}
+<div class="col-md-3 col-6 m-auto " style="height:fit-content">
+    <div class="card bg-light text-bold p-3" style="margin-top:5px; border-radius: 15px;height: fit-content;">
+        <div class="card-header">
+            <h4 class="display 4"><span style="color:magenta">Position:</span> {{job[0]}}</h4>
+        </div>
+        <p><span style="color:magenta">Vacancies</span> {{job[7]}}</p>
+        <p><span style="color:magenta">Role</span> {{job[2]}}</p>
+        <p><span style="color:magenta">Company/Employee</span> {{job[1]}}</p>
+        <p><span style="color:magenta">Jon ID</span> {{job[19]}}</p>
+        <p class="text-center" style="font-size:20px;color:red">Enter Admin Password To delete this Job</p>
+        <a href="/hookup/{{job[1]}}" type="button" class="buy-btn m-auto" style="position:sticky">More</a>
+    </div>
+    <br>
+    <div class="card m-auto d-flex rounded-o" style="height:110px;width:35%">
+      <form action="" method="post">
+
+          <input type="password" name="a_password" id=""   style="border-radius: 15px;-webkit-text-fill-color: magenta;" class="form-control bg-light" placeholder="Enter Password"><br>
+          <button type="submit" class="buy-btn m-auto d-flex btn-sm">Delete This Job</button>
+          <input type="text" name="main_role" value="{{job[2]}}" readonly hidden="hidden" id="d" required style="border-radius: 15px;-webkit-text-fill-color: magenta;" class="form-control bg-light" placeholder="Enter Job Role"><br>
+          <input type="text" name="employee_name" id="id" readonly hidden="hidden" value="{{job[1]}}" required style="border-radius: 15px;-webkit-text-fill-color: magenta;" class="form-control bg-light" placeholder="Enter Employee/Company name"><br>
+          <input type="text" name="job_name" id="i" readonly hidden="hidden" required style="border-radius: 15px;-webkit-text-fill-color: magenta;"  value="{{job[0]}}" class="form-control bg-light" placeholder="Enter Job Position"><br>
+
+      </form>
+    </div>
+
+</div>
+
+
+
+       {% endfor %}
+</section>
+
+
+<style>
+    .col-md-3{
+        height:300px;
+        overflow-y: hidden;
+        border-radius: 15px;
+
+    }
+    .card{
+        height: fit-content;
+overflow-y: hidden;
+
+    }
+    .row{
+        border-radius: 15px;
+    }
+</style>
+
+
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

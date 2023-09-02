@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"-->
+<!--        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<!--        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"-->
+<!--            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"-->
+<!--            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
+<!--            crossorigin="anonymous"></script>-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- css and bootstrap links -->
+    <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/files/css/style.css">
+    <link rel="stylesheet" href="../static/files/css/lightslider.css">
+    <!-- supporting js files -->
+    <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/files/js/jquery.js"></script>
+    <script src="../static/files/js/lightslider.js"></script>
+    <script src="../static/files/js/script.js"></script>
+    <script type="text/javascript">
+            function message(){
+                var d=new Date();
+                time=d.getTime()
+                if(time <=11){
+                    document.write("Good Morning")
+                } else if(time<16){
+                    document.write("Good Afternoon")
+                } else {
+                    document.write("Good Evening")
+                }
+            }
+        </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="zoom:90%" id="nav">
+    <a class="navbar-brand text-bold" href="/" style="font-family:harrington;font-size:50px;color:magenta">Jobs Only</a>
+    <button class="navbar-toggler btn-sm" style="color:magenta;background-color:magenta;zoom:70%" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/announcements" style="color:magenta">Chats</a>
+            </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="/home" style="color:magenta">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/post" style="color:magenta">Post a Job </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/msg" style="color:magenta">Forum Chat </a>
+            </li>
+            <li class="nav-item dropdown" style="color:magenta">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style="color:magenta">
+                    More
+                </a>
+                <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown" style="color:magenta;background-color:magenta">
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/report" style="color:magenta">Help</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/" style="color:magenta">About Us</a>
+                </div>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+<!--            &nbsp;&nbsp;-->
+            {%if session['username'] %}
+           <a href="/logout" type="button" class="buy-btn">Sign out</a>&nbsp;&nbsp;&nbsp;
+            <h5 style="color:magenta;font-size:30px"><a onload="message()" href="/single_item/{{session['username']}}" style="text-decoration:none;color:magenta">{{session['username']}}</a></h5>
+
+            {%elif session['signed_up']%}
+            <a href="/signout" type="button" class="buy-btn">Sign out</a>&nbsp;&nbsp;&nbsp;
+            <a href="/signout" type="button" class="buy-btn btn-sm">Sign Into Another Account</a>&nbsp;&nbsp;&nbsp;
+            <h5>{{session['username']}}</h5>
+            {%else%}
+            <a href="/signin" type="button" class="buy-btn">Log In</a>&nbsp;&nbsp;&nbsp;
+            <a href="/signup" type="button" class="buy-btn">Sign Up</a>&nbsp;&nbsp;&nbsp;
+            {%endif%}
+        </form>
+    </div>
+</nav>
+<style>
+    .buy-btn{
+    transition:2s 0.5s all linear;
+    }
+    .navbar-brand{
+    animation: shake 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    }
+    @keyframes shake{
+    0%,10%{
+    transform: rotateZ(0deg);
+
+    }
+    20%,30%{
+        transform: rotateZ(5deg);
+
+        }
+    40%,50%{
+        transform: rotateZ(-5deg);
+
+        }
+}
+
+
+
+
+    .buy-btn:hover{
+    transform:translateY(0.2cm);
+}
+</style>
+</body>
+</html>

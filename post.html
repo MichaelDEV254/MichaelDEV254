@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Post</title>
+        <link rel="stylesheet" href="../Kima Flask/static/files/css/bootstrap.min.css">
+        <script src="../Kima Flask/static/files/js/bootstrap.min.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Post</title>
+        <!-- css and bootstrap links -->
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/style.css">
+        <link rel="stylesheet" href="../static/files/css/lightslider.css">
+        <!-- supporting js files -->
+        <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/files/js/jquery.js"></script>
+        <script src="../static/files/js/lightslider.js"></script>
+        <script src="../static/files/js/script.js"></script>
+    </head>
+
+ <body class="" style="zoom:70%;bg-light" >
+ {% include'navbar.html' %} <hr>
+            <br>
+ {%if session['username'] %}
+       <div class="card d-flex ml-20 mr-20 bg-light p-5 m-auto" style="width:60%" >
+           <h4 class="text-center" style="color:magenta" >{{success}} &nbsp; <a href="/jobs" type="button" class="buy-btn m-auto btn-sm" >View Post</a></h4>
+       <form action="" class="form-control mt-5 ml-20 mr-20 mb-5 bg-light" method="post" style="border-radius:15px">
+           <input type="text" hidden="hidden" name="username" maxlength="25"  value="{{session['username']}}"   placeholder="Enter user name" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;" ><br>
+
+                    <input type="text" name="Job_name" maxlength="25" required placeholder="Enter Job name" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;"><br>
+                    <input type="text"  name="main_role" maxlength="45"  required placeholder="Job role" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;"><br>
+                    <input type="text" name="employee_name" maxlength="20" required placeholder="Employee/Company name" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <input type="number" name="employee_contact" maxlength="16" placeholder="Employee Contact" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                         <h4 class="text-center display 4 text-warning" >{{error}}</h4>
+                    <input type="email" name="employee_email" maxlength="20" required placeholder="Employee email" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <input type="text" name="employee_website" maxlength="20" placeholder="Employee Website" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <input type="number" name="number_of_vacancies" maxlength="6" required placeholder="Number of Vacancies" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <textarea name="attatched_message" required maxlength="200" id="" cols="50" rows="10" class="form-control bg-light" style="border-radius: 15px;-webkit-text-fill-color:magenta;" placeholder="Attatch a message"></textarea><br>
+                        <hr>
+                        <h5>Enter  Requirements</h5>
+                   <ul>
+                       <li><input type="text" name="requirement_1" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_2" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_3" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_4" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_5" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_6" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_7" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_8" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                           <br>
+
+                       </li><br>
+                       <li><input type="text" name="requirement_9" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_10" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li>
+                   </ul>
+            <input type="submit" value="Post" class="buy-btn"> 
+       </form>
+       </div>
+ {%else%}
+ <div class="alert alert-info alert-dismissible fade show bg-success m-auto"role="alert" style="border-radius:15px;width:60%">
+     <br>
+            <button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            <p style="font-size:30px;" class="text-center text-light">Login Required </p>
+
+          </div>
+ <br>
+ <div class="card d-flex ml-20 mr-20 bg-light p-5 m-auto" style="width:60%" >
+           <h4 class="text-center" style="color:magenta" >{{success}} &nbsp; <a href="/jobs" type="button" class="buy-btn m-auto btn-sm" >View Post</a></h4>
+       <form action="" class="form-control mt-5 ml-20 mr-20 mb-5 bg-light" method="post" style="border-radius:15px">
+
+                    <input type="text"  name="Job_name" maxlength="25" disabled required placeholder="Enter Job name" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;"><br>
+                    <input type="text"  name="main_role" maxlength="45" disabled  required placeholder="Job role" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;"><br>
+                    <input type="text" name="employee_name" maxlength="20" disabled required placeholder="Employee/Company name" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <input type="number" name="employee_contact" disabled  maxlength="16" placeholder="Employee Contact" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                         <h4 class="text-center display 4 text-warning" >{{error}}</h4>
+                    <input type="email" name="employee_email" disabled  maxlength="20" required placeholder="Employee email" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <input type="text" name="employee_website" disabled  maxlength="20" placeholder="Employee Website" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <input type="number" name="number_of_vacancies" disabled  maxlength="6" required placeholder="Number of Vacancies" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color:magenta;"><br>
+                    <input type="text" name="username" maxlength="25" disabled value="{{session['username']}}" hidden="hidden" required placeholder="Enter user name" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;" >
+                    <textarea name="attatched_message" required maxlength="200" disabled  id="l" cols="50" rows="10" class="form-control bg-light" style="border-radius: 15px;-webkit-text-fill-color:magenta;" placeholder="Attatch a message"></textarea><br>
+                        <hr>
+                        <h5>Enter  Requirements</h5>
+                   <ul>
+                       <li><input type="text" name="requirement_1" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_2" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_3" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_4" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_5" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_6" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_7" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_8" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" name="requirement_9" disabled  maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li><br>
+                       <li><input type="text" disabled  name="requirement_10" maxlength="40" placeholder="Enter Requirement" class="form-control bg-light"
+                        style="border-radius: 15px;-webkit-text-fill-color: magenta;">
+                       </li>
+                   </ul>
+            <a href="#" type="button" class="buy-btn d-flex m-auto" >Post</a>
+       </form>
+       </div>
+ {%endif%}
+             {%include 'footer.html'%}
+
+ </body>
+
+</html>

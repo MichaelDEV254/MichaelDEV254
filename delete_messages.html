@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <!-- css and bootstrap links -->
+    <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/files/css/style.css">
+    <link rel="stylesheet" href="../static/files/css/lightslider.css">
+    <!-- supporting js files -->
+    <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/files/js/jquery.js"></script>
+    <script src="../static/files/js/lightslider.js"></script>
+    <script src="../static/files/js/script.js"></script>
+</head>
+<body id="body" style="overflow-x:hidden; width:100%; height:100%; zoom:70%" class="" >
+{% include 'navbar.html' %}
+<p style="font-size:30px;color:green" class="text-center ">{{message}}</p>
+            <p style="font-size:30px;color:red" class="text-center ">{{error}}</p>
+<h5 style="color:magenta;font-size:30px"><a href="/single_item/{{session['username']}}" style="text-decoration:none;color:magenta">{{session['username']}}</a></h5>
+
+
+  <div class="card  bg-light p-3 d-flex m-auto" style="height: 1000px; width: 500px; align-items: left;
+  margin-top: 30px;margin:auto; overflow-y:scroll;border-radius:15px">
+      <a href="#btn" id="top" type="button" class="rounded-circle p-2 mb-5"  style="zoom:100%;margin-left:80%;background-color:magenta;color:white;font-size:20px ;text-decoration:none">Chat</a>
+       <a href="/announcements" type="button" class="buy-btn d-flex m-auto" >All Chats</a> <br>
+
+          {%  for sent in mymessage  %}
+
+          <div class="alert alert-info alert-dismissible fade show bg-light"role="alert" style="height:max-content;border-radius:50px 50px 0px 50px;height:fit-content;width:450px;align-items:start; overflow-y:show">
+            <button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="alert-heading" style="zoom:70%;color:green;margin-top:0;text-decoration:none;color:green"><a href="/single_item/{{session['username']}}" >{{ sent[5] }}</a></h4>
+            <p style="color:magenta;">{{ sent[1] }}</p>
+          </div>
+
+          <form class="form-inline my-2 my-lg-0" method="post">
+              <input type="password"class="form-control " placeholder="Enter Password" hidden="hidden"  maxlength="90"  aria-label="password" aria-describedby="basic-addon1" name="a_password"  style="text-align: center;color:magenta;border-radius:15px;position:fixed">&nbsp;
+               <input type="submit" class="buy-btn m-auto m-auto" id="btn" value="Delete" style="">
+
+              <hr>
+          <input type="text"class="form-control" placeholder="Message" hidden="hidden" value="{{ sent[1] }}" required maxlength="90"  aria-label="Username" aria-describedby="basic-addon1" name="message_body" style="text-align: center;color:magenta;border-radius:15px">&nbsp;&nbsp;&nbsp;
+              <input type="text"class="form-control " placeholder="Enter Username" hidden="hidden" value="{{session['username']}}" maxlength="90"  aria-label="Username" aria-describedby="basic-addon1" name="username"  style="text-align: center;color:magenta;border-radius:15px;position:fixed">&nbsp;
+
+
+          </form>
+      <hr>
+          {% endfor %}
+
+
+  </div>
+
+            {%include 'footer.html'%}
+
+</body>
+</html>

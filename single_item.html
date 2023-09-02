@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User</title>
+        <!-- css and bootstrap links -->
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/files/css/style.css">
+        <link rel="stylesheet" href="../static/files/css/lightslider.css">
+        <!-- supporting js files -->
+        <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/files/js/jquery.js"></script>
+        <script src="../static/files/js/lightslider.js"></script>
+        <script src="../static/files/js/script.js"></script>
+
+    </head>
+
+    <body style="zoom:70%">
+        {% include 'navbar.html' %}
+        <div class="container-fluid">
+            <section class="row">
+                <div class="col-md-4 col-4 m-auto ">
+            <div class="card bg-light text-bold" style="margin-top:20px; border-radius: 15px;height: 350px;">
+                <img src="../static/files/images/default.jpg" alt="Profile" style="border-radius: 15px;height:350px"><br>
+
+
+            </div>
+                </div>
+                <div class="col-md-8 col-8 m-auto p-2">
+                     <div class="card bg-light text-bold p-5" style="margin-top:20px; border-radius: 15px;height: 350px;padding:2; overflow-y:scroll">
+                    <h6 style="font-size:70px;color:magenta">{{one_user[21]}}</h6>
+                    <h3 style="color:magenta">Email</h3>
+                    <h6>{{one_user[20]}}</h6>
+                    <h3 style="color:magenta">Avarage Payment per Hour</h3>
+                    <h6>{{one_user[19]}} USD</h6>
+                    <h3 style="color:magenta">Phone Number</h3>
+                    <h6>{{one_user[1]}}</h6>
+                    <h3 style="color:magenta">Website</h3>
+                    <h6>{{one_user[4]}}</h6>
+                     <h3 style="color:magenta">Location</h3>
+                    <h6>{{one_user[16]}}</h6>
+                     <h3 class="" style="color:magenta">Active since</h3>
+                      {{one_user[2]}}
+            </div>
+
+                </div>
+            </section>
+             <section class="row">
+                <div class="col-md-6 col-6 m-auto ">
+            <div class="card bg-light text-bold p-5" style="margin-top:20px; border-radius: 15px;height: 350px; overflow-y:scroll">
+                <h3 style="color:magenta">Skills</h3>
+                <ul>
+                    <li>{{one_user[6]}}</li>
+                    <li>{{one_user[7]}}</li>
+                    <li>{{one_user[8]}}</li>
+                    <li>{{one_user[9]}}</li>
+                    <li>{{one_user[10]}}</li>
+                    <li>{{one_user[11]}}</li>
+                    <li>{{one_user[12]}}</li>
+                    <li>{{one_user[13]}}</li>
+                    <li>{{one_user[14]}}</li>
+                    <li>{{one_user[15]}}</li>
+                </ul>
+            </div>
+                </div>
+                <div class="col-md-6 col-6 m-auto p-2" style="overflow-y:scroll">
+                     <div class="card bg-light text-bold p-5" style="margin-top:20px; border-radius: 15px;height: 350px;">
+                         <h3 style="color:magenta">Bio</h3>
+                    <div class="card m-auto d-flex"><h3>{{one_user[5]}}</h3></div>
+                         <br><br>
+                         <a href="/account_deletion/{{one_user[21]}}" class="buy-btn m-auto" style="font-family:monospace;color:red ;bottom:0" >Delete Account</a><br>
+                <a href="/report/{{one_user[21]}}" class="buy-btn m-auto" style="font-family:monospace;color:red">Help </a>
+            </div>
+                </div>
+            </section>
+            <!-- code for the form -->
+            <section class="row">
+
+
+
+<!--                M-PESA-->
+<!--                <div class="col-md-6 col-6 m-auto">-->
+<!--                    &lt;!&ndash; Check if user is Logged in&ndash;&gt;-->
+<!--                    {% if session['key'] %}-->
+<!--                    &lt;!&ndash; Create a Form that has an action to mpesa route, We will create this route Next&ndash;&gt;-->
+<!--                    <form action="/mpesa" method="post">-->
+<!--                        &lt;!&ndash; Bind Current single_item id in an Input&ndash;&gt;-->
+<!--                        <input type="hidden" name="id" value="{{single_item[0]}}" class="form-control"><br>-->
+
+<!--                        &lt;!&ndash; Create a Phone Number Input &ndash;&gt;-->
+<!--                        <input type="number" name="phone" placeholder="Enter Phone  2547XXXXXX"-->
+<!--                            class="form-control"><br>-->
+<!--                        &lt;!&ndash; find the current single_item Amount in an Input &ndash;&gt;-->
+<!--                        <label for="amount">To Pay KES</label>-->
+<!--                        <input type="number" name="amount" id="amount" value="{{ single_item[3]}}" class="form-control"-->
+<!--                            readonly><br>-->
+
+<!--                        <input type="submit" value="Pay Now" class="btn btn-dark">-->
+<!--                    </form>-->
+<!--                    &lt;!&ndash; If not Logged in, user MUST Login below to see above Form&ndash;&gt;-->
+<!--                    {% else %}-->
+<!--                    <h4>Please Sign in to make Payment!</h4>-->
+<!--                    <a href="/signin" class="btn btn-dark btn-sm">Sign in Account</a>-->
+<!--                    {% endif %}-->
+<!--                </div>-->
+<!--            </section>-->
+<!--        </div>-->
+        <!-- similar single_items -->
+        <h2 style="color: magenta;" class="text-center">Similar People</h2>
+        <section class="row">
+            {% for more in more_users %}
+            <div class="col-md-4 col-4 m-auto mb-3">
+                <div class="card bg-light" style="border-radius: 15px">
+                    <div class="card-body">
+                        <h3 style="color: magenta;">{{more[21]}}</h3>
+                        <p class="text-warning"> {{more[6]}}</p>
+                        <a href="/single_item/{{more[21]}}" class="buy-btn" >View {{ more[21]}}</a>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            {% endfor %}
+            <br>
+            <br>
+        </section>
+
+
+
+
+            </section>
+        </div>
+    {% include 'footer.html' %}
+    </body>
+
+</html>
